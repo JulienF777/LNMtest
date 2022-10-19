@@ -27,3 +27,7 @@ Route::get('/index', [indexController::class, 'index']);
 Route::get('/articles', [articlesController::class, 'articles']);
 
 Route::get('/aarticles', [articlesController::class, 'aarticles']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
