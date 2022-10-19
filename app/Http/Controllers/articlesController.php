@@ -39,7 +39,28 @@ if($articles != NULL){
     function aarticles(){
         $art=DB::select("SELECT * FROM article");
        // $art = 'ok';
-        return view('aarticles', ['art' => $art]);
+       $url=DB::select("SELECT img_url,id FROM article");
+       
+
+       // fonction pour corriger les URL (on retire le /public) creation du tableau turl ou la clef est l'id de l'article et la valeur le lien corrigé vers limg
+       $turl=[];
+        foreach($url as $url){ // ici, je retire /public de lurl des images
+        dump($url->img_url);
+        $str = $url->img_url;
+        $prefix = '/public';
+ 
+                if (substr($str, 0, strlen($prefix)) == $prefix) {
+                $str = substr($str, strlen($prefix));
+                 } 
+        dump($str);
+        // array_push($turl, $str);
+        $turl[$url->id] = $str; // j'ajoute la clef id corresepondant à l'article à a chaque url
+        // dd($turl);
+      }
+ 
+      
+        return view('aarticles', ['art' => $art, 'str' => $str, 'turl' => $turl]);
+        
 }
     }
 
