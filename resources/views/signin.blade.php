@@ -1,31 +1,20 @@
-@extends('layouts.app')
 
-@section('content')
-@if(isset($_SESSION["login"]))
+<div class='formulaire'>
+<form action='signinT' method='post'>
+@csrf
+<input type='text' name='id' id='id' placeholder='Identifiant' required='required' class='formtxt'/>
 
-    <span>Bienvenue {{$_SESSION["login"]}}, vous etes deja connecté </span>
-    <br/><a href='index.php?action=disconnect'>Deconnecter</a>
-    
+<input type='email' name='mail' id='mail' placeholder='email'  required='required' class='formtxt'/>
 
-@else
-    
-    <div class='formulaire'>
-    <form action='index.php?action=signinT' method='post'>
-    <input type='text' name='id' id='id' placeholder='Identifiant' required='required' class='formtxt'/>
+<input type='password' name='mdp' id='mdp2' placeholder='Mot de passe'  required='required' class='formtxt'/>
+<input type='password' name='mdpC' id='mdp' placeholder='Confirmation Mot de passe'  required='required'class='formtxt'/>
 
-    <input type='email' name='mail' id='mail' placeholder='email'  required='required' class='formtxt'/>
+<input type='submit' value='S&rsquo;enregistrer' id='enregister'/>
 
-    <input type='password' name='mdp' id='mdp2' placeholder='Mot de passe'  required='required' class='formtxt'/>
-    <input type='password' name='mdpC' id='mdp' placeholder='Confirmation Mot de passe'  required='required'class='formtxt'/>
+<div class='changeP'>
+<span>Vous avez deja un compte ? </span>
+<a href='login'> Vous connecter </a>
+</div>
+</form>
 
-    <input type='submit' value='S&rsquo;enregistrer' id='enregister'/>
-    @if(isset($tmp['eror']))<p class='eror'>{{$tmp['eror']}}</p>@endif
-    <div class='changeP'>
-    <span>Vous avez deja un compte ? </span>
-    <a href='index.php?action=login'> Vous connecter </a>
-    </div>
-    </form>
-    
-    </div>
-@endif
-@endsection
+</div>

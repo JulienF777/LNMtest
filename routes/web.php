@@ -17,10 +17,10 @@ use App\Http\Controllers\articlesController;
 
 
 Route::get('/login', [FirstController::class, 'login']);
-
-
 Route::post('/loginT', [FirstController::class, 'loginT']);
 
+Route::get('/signin', [FirstController::class, 'signin']);
+Route::post('/signinT', [FirstController::class, 'signinT']);
 
 Route::get('/index', [indexController::class, 'index']);
 
