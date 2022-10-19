@@ -11,5 +11,5 @@
   </div>
 
   <div class="register">
-    <span>Vous n'avez pas de compte  <a href='register'>Inscrivez-vous</a></span>
+    <span>Vous n'avez pas de compte  <a href='signin'>Inscrivez-vous</a></span>
   </div>
