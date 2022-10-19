@@ -2,5 +2,3 @@
 
 {{ dd($art) }}
 
-
-e,fhngzugyvubhd
