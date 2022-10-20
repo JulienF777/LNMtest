@@ -31,3 +31,6 @@ Route::get('/aarticles', [articlesController::class, 'aarticles']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get("message", "MessageController@formMessageGoogle");
+Route::post("message", "MessageController@sendMessageGoogle")->name('send.message.google');
